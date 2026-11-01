@@ -9,3 +9,10 @@ This repository preserves the complete contents of the published
 
 `PUBLICATION.md` is the only added file. Paths inside the VSIX are preserved.
 The extension license and notices are included in `extension/`.
+
+## Links
+
+- [Topaz documentation](https://topaz.ooo/en/docs)
+- [Topaz source](https://github.com/studiohaze/topaz)
+- [Topaz on the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=studiohaze.topaz)
+- [Topaz on Open VSX](https://open-vsx.org/extension/studiohaze/topaz)
