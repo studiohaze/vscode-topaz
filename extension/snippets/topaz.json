@@ -1,0 +1,41 @@
+{
+  "Function": {
+    "prefix": "function",
+    "body": [
+      "function ${1:name}(${2:value}: ${3:int}) -> ${4:int} {",
+      "  ${0:$2}",
+      "}"
+    ]
+  },
+  "Binding": {
+    "prefix": "let",
+    "body": [
+      "let ${1:name} = ${0:value}"
+    ]
+  },
+  "Match": {
+    "prefix": "match",
+    "body": [
+      "match ${1:value} {",
+      "  case ${2:Some(item)} => ${3:item}",
+      "  case _ => ${0:0}",
+      "}"
+    ]
+  },
+  "Record": {
+    "prefix": "record",
+    "body": [
+      "record ${1:Name} {",
+      "  ${2:value}: ${3:int},",
+      "}"
+    ]
+  },
+  "Test": {
+    "prefix": "test",
+    "body": [
+      "function test_${1:name}() -> bool {",
+      "  ${0:true}",
+      "}"
+    ]
+  }
+}

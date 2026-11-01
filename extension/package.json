@@ -1,0 +1,108 @@
+{
+  "name": "topaz",
+  "displayName": "Topaz",
+  "description": "Topaz language support with syntax highlighting and the installed language server.",
+  "version": "0.2.0",
+  "publisher": "studiohaze",
+  "author": "Studio Haze Inc.",
+  "license": "Apache-2.0",
+  "icon": "icon.png",
+  "homepage": "https://topaz.ooo",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:topaz"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "topaz",
+    "tpz",
+    "unicode"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "The extension starts the configured installed Topaz executable."
+    }
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "topaz",
+        "aliases": [
+          "Topaz",
+          "topaz"
+        ],
+        "extensions": [
+          ".tpz"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icon.png",
+          "dark": "./icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "topaz",
+        "scopeName": "source.topaz",
+        "path": "./syntaxes/topaz.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "topaz",
+        "path": "./snippets/topaz.json"
+      }
+    ],
+    "configuration": {
+      "title": "Topaz",
+      "properties": {
+        "topaz.compiler": {
+          "type": "string",
+          "enum": [
+            "default",
+            "rust",
+            "self"
+          ],
+          "enumDescriptions": [
+            "Follow the compiler policy of the installed Topaz product.",
+            "Use the Rust Stage 0 compiler explicitly for comparison or recovery.",
+            "Use the installed self-hosted compiler explicitly."
+          ],
+          "default": "default",
+          "scope": "window",
+          "description": "Compiler selection for each new Topaz language-server process. Reload the window after changing it."
+        },
+        "topaz.executablePath": {
+          "type": "string",
+          "default": "topaz",
+          "scope": "window",
+          "description": "Executable name or path for an installed Topaz toolchain."
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "vscode-languageclient": "8.1.0"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "3.6.0",
+    "esbuild": "0.25.8"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "licenses:write": "node scripts/third-party-notices.mjs --write",
+    "licenses:check": "node scripts/third-party-notices.mjs",
+    "check": "npm test && npm run licenses:check && node scripts/check-package.mjs",
+    "build": "esbuild extension.js --bundle --minify --platform=node --format=cjs --external:vscode --legal-comments=none --outfile=dist/extension.js",
+    "vscode:prepublish": "npm run licenses:write && npm run build && npm run check",
+    "package:vsix": "npx vsce package --no-dependencies --allow-missing-repository --out topaz-0.2.0.vsix",
+    "check:vsix": "node scripts/check-package.mjs --vsix topaz-0.2.0.vsix"
+  }
+}

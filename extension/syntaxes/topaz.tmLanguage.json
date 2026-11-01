@@ -1,0 +1,162 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Topaz",
+  "scopeName": "source.topaz",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#templates" },
+    { "include": "#strings" },
+    { "include": "#declarations" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#constants" },
+    { "include": "#numbers" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.topaz",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.topaz",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "templates": {
+      "patterns": [
+        {
+          "name": "string.quoted.triple.template.topaz",
+          "begin": "\\b(p|r|sh|sql)(\"\"\")",
+          "beginCaptures": {
+            "1": { "name": "support.function.template.topaz" },
+            "2": { "name": "punctuation.definition.string.begin.topaz" }
+          },
+          "end": "\"\"\"",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.topaz" }
+          }
+        },
+        {
+          "name": "string.quoted.double.template.topaz",
+          "begin": "\\b(p|r|sh|sql)(\")",
+          "beginCaptures": {
+            "1": { "name": "support.function.template.topaz" },
+            "2": { "name": "punctuation.definition.string.begin.topaz" }
+          },
+          "end": "(?<!\\\\)\"",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.string.end.topaz" }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.triple.topaz",
+          "begin": "\"\"\"",
+          "end": "\"\"\""
+        },
+        {
+          "name": "string.quoted.double.topaz",
+          "begin": "\"",
+          "end": "(?<!\\\\)\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.topaz",
+              "match": "\\\\."
+            },
+            {
+              "name": "meta.interpolation.topaz",
+              "begin": "\\{",
+              "end": "\\}"
+            }
+          ]
+        }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "\\b(function)\\s+([\\p{L}_][\\p{L}\\p{N}_]*)",
+          "captures": {
+            "1": { "name": "storage.type.function.topaz" },
+            "2": { "name": "entity.name.function.topaz" }
+          }
+        },
+        {
+          "match": "\\b(type|enum|record|newtype|protocol)\\s+([\\p{L}_][\\p{L}\\p{N}_]*)",
+          "captures": {
+            "1": { "name": "storage.type.topaz" },
+            "2": { "name": "entity.name.type.topaz" }
+          }
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.topaz",
+          "match": "\\b(if|else|match|case|for|in|by|while|loop|break|continue|return|defer|using|concurrent)\\b"
+        },
+        {
+          "name": "keyword.declaration.topaz",
+          "match": "\\b(let|mut|const|type|function|enum|record|newtype|impl|protocol|derives)\\b"
+        },
+        {
+          "name": "keyword.control.import.topaz",
+          "match": "\\b(import|export|as)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.primitive.topaz",
+          "match": "\\b(int|float|string|bool)\\b"
+        },
+        {
+          "name": "entity.name.type.topaz",
+          "match": "\\b[A-Z][\\p{L}\\p{N}_]*\\b"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.topaz",
+          "match": "\\b(true|false|null)\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.duration.topaz",
+          "match": "\\b\\d+(ms|s|m)\\b"
+        },
+        {
+          "name": "constant.numeric.float.topaz",
+          "match": "\\b\\d+\\.\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.topaz",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.topaz",
+          "match": "\\.\\.<|\\.\\.|\\?\\?=|\\?\\?|\\?\\.|\\|>|>>|->|=>|\\*\\*|==|!=|<=|>=|&&|\\|\\||\\+=|-=|\\*=|/=|%=|[+\\-*\\/%<>=!?]"
+        }
+      ]
+    }
+  }
+}
