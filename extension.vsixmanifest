@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
 		<Metadata>
-			<Identity Language="en-US" Id="topaz" Version="0.2.0" Publisher="studiohaze" />
+			<Identity Language="en-US" Id="topaz" Version="0.2.1" Publisher="studiohaze" />
 			<DisplayName>Topaz</DisplayName>
 			<Description xml:space="preserve">Topaz language support with syntax highlighting and the installed language server.</Description>
 			<Tags>topaz,tpz,unicode,snippet,Topaz,__ext_tpz</Tags>

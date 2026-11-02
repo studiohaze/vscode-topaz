@@ -2,7 +2,7 @@
   "name": "topaz",
   "displayName": "Topaz",
   "description": "Topaz language support with syntax highlighting and the installed language server.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "studiohaze",
   "author": "Studio Haze Inc.",
   "license": "Apache-2.0",
@@ -93,7 +93,9 @@
   },
   "devDependencies": {
     "@vscode/vsce": "3.6.0",
-    "esbuild": "0.25.8"
+    "esbuild": "0.25.8",
+    "vscode-oniguruma": "2.0.1",
+    "vscode-textmate": "9.3.2"
   },
   "scripts": {
     "test": "node --test test/*.test.mjs",
@@ -102,7 +104,7 @@
     "check": "npm test && npm run licenses:check && node scripts/check-package.mjs",
     "build": "esbuild extension.js --bundle --minify --platform=node --format=cjs --external:vscode --legal-comments=none --outfile=dist/extension.js",
     "vscode:prepublish": "npm run licenses:write && npm run build && npm run check",
-    "package:vsix": "npx vsce package --no-dependencies --allow-missing-repository --out topaz-0.2.0.vsix",
-    "check:vsix": "node scripts/check-package.mjs --vsix topaz-0.2.0.vsix"
+    "package:vsix": "npx vsce package --no-dependencies --allow-missing-repository --out topaz-0.2.1.vsix",
+    "check:vsix": "node scripts/check-package.mjs --vsix topaz-0.2.1.vsix"
   }
 }

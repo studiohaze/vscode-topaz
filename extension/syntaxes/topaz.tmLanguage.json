@@ -111,6 +111,10 @@
         {
           "name": "keyword.control.import.topaz",
           "match": "\\b(import|export|as)\\b"
+        },
+        {
+          "name": "keyword.other.collection.topaz",
+          "match": "(?<![\\p{L}\\p{N}_.])(map|set)(?=[ \\t]*(?:/\\*.*?\\*/[ \\t]*)*\\{)"
         }
       ]
     },

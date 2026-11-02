@@ -1,5 +1,7 @@
 # Topaz for VS Code
 
+Language support for [Topaz](https://topaz.ooo), a general-purpose programming language with typesetting built in.
+
 This extension supports `.tpz` files with syntax highlighting, a file icon,
 comments, brackets, snippets, and diagnostics from the language server in an
 installed Topaz toolchain.

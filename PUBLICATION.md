@@ -1,11 +1,11 @@
 # Published extension mirror
 
 This repository preserves the complete contents of the published
-`studiohaze.topaz` version `0.2.0` VSIX unchanged.
+`studiohaze.topaz` version `0.2.1` VSIX unchanged.
 
-- Source VSIX: https://open-vsx.org/api/studiohaze/topaz/0.2.0/file/studiohaze.topaz-0.2.0.vsix
-- SHA-256: `8b92e9281ec48070bafa03ed369c10ecd4ed5524834efe5cc7b797aa2286a871`
-- Version: `0.2.0`
+- Source VSIX: https://open-vsx.org/api/studiohaze/topaz/0.2.1/file/studiohaze.topaz-0.2.1.vsix
+- SHA-256: `b06c66ff95f3e2d4f7446a5ccbf3a160a3249cd4c4806097df835f871101e740`
+- Version: `0.2.1`
 
 `PUBLICATION.md` is the only added file. Paths inside the VSIX are preserved.
 The extension license and notices are included in `extension/`.
